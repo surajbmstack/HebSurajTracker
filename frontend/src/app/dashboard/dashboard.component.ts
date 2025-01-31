@@ -38,7 +38,7 @@ totalSpent: number = 0;
         'Authorization':  token
       }
     )
-    this.http.get('http://localhost:5000/api/user/get-user',{headers}).subscribe((res: any) => {
+    this.http.get('https://hebsurajtracker.onrender.com/api/user/get-user',{headers}).subscribe((res: any) => {
       this.balance = res.user.balance;
       this.calculateTotalSpent();
     })
@@ -52,7 +52,7 @@ totalSpent: number = 0;
     )
     
     console.log(headers)
- return this.http.get('http://localhost:5000/api/expense/get-expenses',{headers}).subscribe((res: any) => {
+ return this.http.get('https://hebsurajtracker.onrender.com/api/expense/get-expenses',{headers}).subscribe((res: any) => {
    
    
       this.expenses = res.expense;
@@ -78,7 +78,7 @@ totalSpent: number = 0;
         'Authorization':  token
       }
     )
-    this.http.post('http://localhost:5000/api/expense/add-expense',this.newExpense,{headers}).subscribe((res: any) => {
+    this.http.post('https://hebsurajtracker.onrender.com/api/expense/add-expense',this.newExpense,{headers}).subscribe((res: any) => {
       this.getExpense();
      
       this.newExpense = {
@@ -94,7 +94,7 @@ totalSpent: number = 0;
         'Authorization':  token
       }
     )
-    this.http.delete(`http://localhost:5000/api/expense/delete-expense/${id}`,{headers}).subscribe((res: any) => {
+    this.http.delete(`https://hebsurajtracker.onrender.com/api/expense/delete-expense/${id}`,{headers}).subscribe((res: any) => {
       this.getExpense();
     })
   }
@@ -114,7 +114,7 @@ totalSpent: number = 0;
         'Authorization':  token
       }
     )
-    this.http.post('http://localhost:5000/api/user/update-user/',{balance:this.newBalance},{headers}).subscribe((res: any) => {
+    this.http.post('https://hebsurajtracker.onrender.com/api/user/update-user/',{balance:this.newBalance},{headers}).subscribe((res: any) => {
       this.getExpense();
     })
    
