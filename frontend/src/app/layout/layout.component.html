@@ -1,0 +1,38 @@
+<div class="row align-items-center" style="background-color: #D4DE95; padding: 10px;">
+    <!-- Navigation Section -->
+    <div class="col d-flex justify-content-center">
+      <div class="btn-group" style=" border-radius: 20px; padding-top: 14px;">
+       
+        <ul style="list-style: none; padding: 10px; margin: 0;" class="d-flex justify-content-center">
+          <li>
+            <a 
+              routerLinkActive="active-link" 
+              routerLink="/layout/dashboard" 
+              style="margin: 0 10px; border: none; padding: 5px; border-radius: 20px; color: white; text-decoration: none;">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a 
+              routerLinkActive="active-link" 
+              routerLink="/layout/expense" 
+              style="margin: 0 10px; border: none; padding: 5px; border-radius: 20px; color: white; text-decoration: none;">
+              Expense
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Logout Button -->
+    <div class="col-auto">
+      <button  (click)="logout()"
+        class="text-end" 
+        style="background-color: #BAC095; color: white; border: none; padding: 8px 15px; border-radius: 20px;">
+        Logout
+      </button>
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>
+  

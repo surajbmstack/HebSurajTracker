@@ -1,0 +1,58 @@
+
+<div class="container">
+  <div class="header">
+    <img
+      src="https://i.ibb.co/jfScDTC/budget.png"
+      alt="Expense Tracker"
+    />
+    <div class="balance-container">
+      <h2>Your Balance</h2>
+      <h2 [ngClass]="{
+        'low-balance': balance <= 100,
+        'mid-balance': balance < 500,
+        'high-balance': balance >= 500,
+        
+      }" *ngIf="!isEditing" id="balance" class="balance">
+        {{ balance }}
+      </h2>
+      <input *ngIf="isEditing" type="number" [value]="balance"name="balance" [(ngModel)]="newBalance" class="form-control" />
+    
+      <button *ngIf="!isEditing" class="btn btn-primary" (click)="update()">Edit</button>
+      <button *ngIf="isEditing" class="btn btn-success" (click)="save()">Save</button>
+      <button *ngIf="isEditing" class="btn btn-danger" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+  <div class="inc-exp-container">
+    <div>
+      <h4>Amount spent</h4>
+      <p id="money-plus" class="money plus">Rs {{totalSpent}} </p>
+    
+    </div>
+  
+  </div>
+  <h3>Transaction History</h3>
+ 
+  <ul id="list" class="list">
+    <li *ngFor="let exp of expenses" style="border: 2px solid blueviolet;">
+      <span>{{exp.description}}</span>--- <span>{{exp.amount}}</span>
+      {{exp.createdAt | date: 'short'}} <button class="delete-btn" (click)="deleteExpense(exp._id)">x</button>
+     
+    </li>
+  </ul>
+  <h3>Add new transaction</h3>
+  <form id="form">
+    <div class="form-control">
+      <label for="text">Description</label>
+      <input type="text" name="description" [(ngModel)]="newExpense.description" id="text"  placeholder="Enter description..." />
+    </div>
+    <div class="form-control">
+      <label for="amount"
+        >Amount <br />
+        </label
+      >
+      <input type="number" id="amount" name="amount" [(ngModel)]="newExpense.amount" placeholder="Enter amount..." />
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addExpense()" >Add transaction</button>
+  </form>
+</div>
+<!-- Notification -->
