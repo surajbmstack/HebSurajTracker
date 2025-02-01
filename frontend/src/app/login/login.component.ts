@@ -27,7 +27,7 @@ constructor(private router:Router,
 http=inject(HttpClient)
 
 onLogin(){
- this.http.post('http://localhost:5000/api/user/login',this.loginObj).subscribe((res:any)=>{
+ this.http.post('https://hebsurajtracker.onrender.com/api/user/login',this.loginObj).subscribe((res:any)=>{
   if(res.success){
     alert('Login Success')
     sessionStorage.setItem('token',res.token);

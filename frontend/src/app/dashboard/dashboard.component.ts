@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
     
   }
 balance: number =0 ;
+name: string = '';
 isEditing: boolean = false;
   newBalance: number = 0;
   expenses: any[] = [];
@@ -40,6 +41,7 @@ totalSpent: number = 0;
     )
     this.http.get('https://hebsurajtracker.onrender.com/api/user/get-user',{headers}).subscribe((res: any) => {
       this.balance = res.user.balance;
+      this.name=res.user.username;
       this.calculateTotalSpent();
     })
   }
@@ -115,7 +117,7 @@ totalSpent: number = 0;
       }
     )
     this.http.post('https://hebsurajtracker.onrender.com/api/user/update-user/',{balance:this.newBalance},{headers}).subscribe((res: any) => {
-      this.getExpense();
+      this.getUser();
     })
    
   }

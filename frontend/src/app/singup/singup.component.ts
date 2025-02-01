@@ -17,7 +17,7 @@ loginObj={
 constructor(private router:Router){}
 http=inject(HttpClient)
 signup(){
-  this.http.post('http://localhost:5000/api/user/register',this.loginObj).subscribe((res:any)=>{
+  this.http.post('https://hebsurajtracker.onrender.com/api/user/register',this.loginObj).subscribe((res:any)=>{
     if(res.success){
       alert('Signup Success')
       this.router.navigateByUrl('/login')
